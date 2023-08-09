@@ -26,6 +26,17 @@ async def start_command(client, message):
     await message.reply_text(f'Привет {user.username}')
 
 
+@app.on_message(filters.command('help'))
+async def help_command(client, message):
+    help_text = '''
+/start - начать работу с ботом
+/set - установить url для пингования (в формате сайт.рф (без http://))
+/list - вывести последние 5 рузультатов
+/help - справка
+'''
+    await message.reply_text(help_text)
+
+
 @app.on_message(filters.command('set'))
 async def set_command(client, message):
     user = message.from_user
